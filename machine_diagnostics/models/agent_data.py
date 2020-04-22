@@ -27,11 +27,19 @@ class AgentData(models.Model):
     @api.model
     def get_agent_data(self, payload):
         for attr in payload:
+            
+            if attr["age_attribute"] == "Memória Capacidade":
+                age_attribute_value = int(attr["age_attribute_value"])
+                age_attribute_value /= 1073741824
+                age_attribute_value = str(age_attribute_value) + "G"
+            else:
+                age_attribute_value = attr["age_attribute_value"]
+
             domain = [
                 ("name", "=", attr["name"]),
                 ("age_deviceid", "=", attr["age_deviceid"]),
                 ("age_attribute", "=", attr["age_attribute"]),
-                ("age_attribute_value", "=", attr["age_attribute_value"]),
+                ("age_attribute_value", "=", age_attribute_value),
                 ]
             register_line = self.search(domain, limit=1)
 
@@ -40,12 +48,6 @@ class AgentData(models.Model):
                 date = attr["age_last_check"]
                 register_line.sudo().write({"age_last_check": date})
             else:
-                if attr["age_attribute"] == "Memória Capacidade":
-                    age_attribute_value = int(attr["age_attribute_value"])
-                    age_attribute_value /= 1073741824
-                    age_attribute_value = str(age_attribute_value) + "G"
-                else:
-                    age_attribute_value = attr["age_attribute_value"]
                 vals = {
                     'name': attr["name"],
                     'age_deviceid': attr['age_deviceid'],
