@@ -40,11 +40,17 @@ class AgentData(models.Model):
                 date = attr["age_last_check"]
                 register_line.sudo().write({"age_last_check": date})
             else:
+                if attr["age_attribute"] == "Memória Capacidade":
+                    age_attribute_value = int(attr["age_attribute_value"])
+                    age_attribute_value /= 1073741824
+                    age_attribute_value = str(age_attribute_value) + "G"
+                else:
+                    age_attribute_value = attr["age_attribute_value"]
                 vals = {
                     'name': attr["name"],
                     'age_deviceid': attr['age_deviceid'],
                     'age_attribute': attr['age_attribute'],
-                    'age_attribute_value': attr['age_attribute_value'],
+                    'age_attribute_value': age_attribute_value,
                     'age_register_date': attr['age_register_date'],
                     'age_last_check': attr['age_last_check']}
                 self.sudo().create(vals)
