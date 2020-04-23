@@ -24,40 +24,54 @@ Memoria Frequência: (ok)
 Cocatenar o valor com a string "Mhz"
  - Mudança não aplicada (não funcionou)
 
+Mudar Mhz para MHz (API) (ok)
 
-
- ** A FAZER **
-
-Coletar Sistema operacional, bios, placa mãe:
- - Sistema Operacional: No campo edição, concatenar Caption com OSArchitecture. (AGENTE)
- - BIOS: Restringir os dados extraídos da query. (AGENTE)
-         Tratar o formato da string de data. (API)
- - Placa Mãe: OK
-
-Armazenamento Capacidade: (HD e SSD) (correção) (API)
-Dividir por 1073741824 e cocatenar com a string "G" (ok)
- - Aplicar um range de valores que retornam a capacidade comercial. (API)
-
-Teclado DeviceID: (a fazer) (AGENTE)
-Cocatenar DeviceID com Layout e enviar no campo DeviceID do Odoo.
+Trocar Gb por GB (API) (ok)
 
 Placa de Vídeo Memória Dedicada: (INTEL e NVIDIA)
 Dividir por 1073741824 e cocatenar com a string "G" (ok)
 Obs: Tratar o bug do uint32. (futuro/não imediato) (AGENTE)
 Solução: Pegar a RAM do vídeo pelo Modelo da placa. (aplicar) (API)
 
+Armazenamento Capacidade: (HD e SSD) (correção) (API)
+Dividir por 1073741824 e cocatenar com a string "G" (ok)
+ - Aplicar um range de valores que retornam a capacidade comercial. (API)
+Tratar o formato da string de data. (API)
+
+ ** A FAZER **
+
+Coletar Sistema operacional, bios, placa mãe:
+ - Sistema Operacional: No campo edição, concatenar Caption com OSArchitecture. (AGENTE)
+ - BIOS: Restringir os dados extraídos da query. (AGENTE)
+ - Placa Mãe: OK
+
+Teclado DeviceID: (a fazer) (AGENTE)
+Cocatenar DeviceID com Layout e enviar no campo DeviceID do Odoo.
+
+Tratar queries com dois ou mais atributos para cocatenar (AGENTE)
+
+
+ ** DISCUSSÃO **
+
+
+Discutir a questão dos valores com string NULL na tela do Odoo. (mackilem)
+
+Discutir o DeviceID do sistema operacional, placa mãe, e bios.
+
 Teclado referência: (sugestão) (API)
 Converter código numérico para string (ABNT 2 ou 1) (ok)
  - Especificar o formato do retorno como "ABNT2".
 
-Tratar queries com dois ou mais atributos para cocatenar (AGENTE)
+Necessidade de dados de teste para idealizarmos um padrão de dicionário aplicável a todos os possíveis casos.
 
-Trocar Gb por GB (API)
+Bug do uint32: explicar o problema e a solução que aplicamos com base no modelo da placa de vídeo.
 
-Discutir a questão dos valores com string NULL na tela do Odoo.
+O valor da capacidade do HD não está vindo arredondado. (Diferença valor comercial para o valor real)
 
-Discutir o DeviceID do sistema operacional, placa mãe, e bios.
+Discutir o valor do SSD. Se devemos aplicar a regra do valor comercial.
 
-Mudar Mhz para MHz (API)
+Discutir sobre o valor da versão da Bios (Valor na Intel é diferente do WMI, mostrar print)
+
+Comentar sobre o significado do código de fabricante dos chips de memória: Dizer sobre os consórcios IEEE e PCI SIG. O que nós sugerimos colocar com base nos dados que os consórcios disponibilizam e o que o Anderson sugere colocar.
 
 
