@@ -1,0 +1,338 @@
+[
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "BFEBFBFF000906EA",
+        "age_attribute": "Processador DeviceID",
+        "age_attribute_value": "BFEBFBFF000906EA",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "BFEBFBFF000906EA",
+        "age_attribute": "Processador Modelo",
+        "age_attribute_value": "Intel64 Family 6 Model 158 Stepping 10",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "BFEBFBFF000906EA",
+        "age_attribute": "Processador Mem\u00f3ria Cache",
+        "age_attribute_value": 12288,
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "BFEBFBFF000906EA",
+        "age_attribute": "Processador Frequ\u00eancia",
+        "age_attribute_value": 2601,
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_8086&DEV_A30D&SUBSYS_10641D05&REV_10\\3&11583659&0&F8",
+        "age_attribute": "Chipset DeviceID",
+        "age_attribute_value": "PCI\\VEN_8086&DEV_A30D&SUBSYS_10641D05&REV_10\\3&11583659&0&F8",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_8086&DEV_A30D&SUBSYS_10641D05&REV_10\\3&11583659&0&F8",
+        "age_attribute": "Chipset Modelo",
+        "age_attribute_value": "Intel(R) 300 Series Chipset Family LPC Controller (HM370) - A30D",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "DISPLAY\\BOE07D2\\4&8A52DC4&0&UID265988",
+        "age_attribute": "Tela DeviceID",
+        "age_attribute_value": "DISPLAY\\BOE07D2\\4&8A52DC4&0&UID265988",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "DISPLAY\\BOE07D2\\4&8A52DC4&0&UID265988",
+        "age_attribute": "Tela Marca",
+        "age_attribute_value": "DISPLAY\\BOE07D2\\4&8A52DC4&0&UID265988",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "DISPLAY\\BOE07D2\\4&8A52DC4&0&UID265988",
+        "age_attribute": "Tela Taxa de Atualiza\u00e7\u00e3o de Frame",
+        "age_attribute_value": 60,
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "AM1P26KC8T1-BBSS    ",
+        "age_attribute": "Mem\u00f3ria SLT1 DeviceID",
+        "age_attribute_value": "AM1P26KC8T1-BBSS    ",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "AM1P26KC8T1-BBSS    ",
+        "age_attribute": "Mem\u00f3ria SLT1 Capacidade",
+        "age_attribute_value": "8589934592",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "AM1P26KC8T1-BBSS    ",
+        "age_attribute": "Mem\u00f3ria SLT1 Frequ\u00eancia",
+        "age_attribute_value": 2667,
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "AM1P26KC8T1-BBSS    ",
+        "age_attribute": "Mem\u00f3ria SLT1 Marca",
+        "age_attribute_value": "04CB",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "AM1P26KC8T1-BBSS    ",
+        "age_attribute": "Mem\u00f3ria SLT2 DeviceID",
+        "age_attribute_value": "AM1P26KC8T1-BBSS    ",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "AM1P26KC8T1-BBSS    ",
+        "age_attribute": "Mem\u00f3ria SLT2 Capacidade",
+        "age_attribute_value": "8589934592",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "AM1P26KC8T1-BBSS    ",
+        "age_attribute": "Mem\u00f3ria SLT2 Frequ\u00eancia",
+        "age_attribute_value": 2667,
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "AM1P26KC8T1-BBSS    ",
+        "age_attribute": "Mem\u00f3ria SLT2 Marca",
+        "age_attribute_value": "04CB",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_10DE&DEV_1F91&SUBSYS_10641D05&REV_A1\\4&2730A75&0&0008",
+        "age_attribute": "Placa de V\u00eddeo Nvidia DeviceID",
+        "age_attribute_value": "PCI\\VEN_10DE&DEV_1F91&SUBSYS_10641D05&REV_A1\\4&2730A75&0&0008",
+        "age_register_date": "2020-04-23 16:47:58",
+        "age_last_check": "2020-04-23 16:47:58"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_10DE&DEV_1F91&SUBSYS_10641D05&REV_A1\\4&2730A75&0&0008",
+        "age_attribute": "Placa de V\u00eddeo Nvidia Modelo",
+        "age_attribute_value": "NVIDIA GeForce GTX 1650",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_10DE&DEV_1F91&SUBSYS_10641D05&REV_A1\\4&2730A75&0&0008",
+        "age_attribute": "Placa de V\u00eddeo Nvidia Mem\u00f3ria Dedicada",
+        "age_attribute_value": "NVIDIA GeForce GTX 1650",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_8086&DEV_3E9B&SUBSYS_10641D05&REV_00\\3&11583659&0&10",
+        "age_attribute": "Placa de V\u00eddeo Intel DeviceID",
+        "age_attribute_value": "PCI\\VEN_8086&DEV_3E9B&SUBSYS_10641D05&REV_00\\3&11583659&0&10",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_8086&DEV_3E9B&SUBSYS_10641D05&REV_00\\3&11583659&0&10",
+        "age_attribute": "Placa de V\u00eddeo Intel Modelo",
+        "age_attribute_value": "Intel(R) UHD Graphics 630",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_8086&DEV_3E9B&SUBSYS_10641D05&REV_00\\3&11583659&0&10",
+        "age_attribute": "Placa de V\u00eddeo Intel Mem\u00f3ria Dedicada",
+        "age_attribute_value": 1073741824,
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "SCSI\\DISK&VEN_NVME&PROD_LITEON_CA3-8D512\\5&3598AAE6&0&000000",
+        "age_attribute": "Armazenamento SSD DeviceID",
+        "age_attribute_value": "SCSI\\DISK&VEN_NVME&PROD_LITEON_CA3-8D512\\5&3598AAE6&0&000000",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "SCSI\\DISK&VEN_NVME&PROD_LITEON_CA3-8D512\\5&3598AAE6&0&000000",
+        "age_attribute": "Armazenamento SSD Capacidade",
+        "age_attribute_value": "512105932800",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "SCSI\\DISK&VEN_NVME&PROD_LITEON_CA3-8D512\\5&3598AAE6&0&000000",
+        "age_attribute": "Armazenamento SSD Modelo",
+        "age_attribute_value": "LITEON CA3-8D512",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "SCSI\\DISK&VEN_NVME&PROD_LITEON_CA3-8D512\\5&3598AAE6&0&000000",
+        "age_attribute": "Armazenamento SSD Formato",
+        "age_attribute_value": "SCSI",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "HDAUDIO\\FUNC_01&VEN_10EC&DEV_0269&SUBSYS_1D051064&REV_1002\\4&11369E1&0&0001",
+        "age_attribute": "Sistema de Som DeviceID",
+        "age_attribute_value": "HDAUDIO\\FUNC_01&VEN_10EC&DEV_0269&SUBSYS_1D051064&REV_1002\\4&11369E1&0&0001",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "HDAUDIO\\FUNC_01&VEN_10EC&DEV_0269&SUBSYS_1D051064&REV_1002\\4&11369E1&0&0001",
+        "age_attribute": "Sistema de Som Marca",
+        "age_attribute_value": "Realtek",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "HDAUDIO\\FUNC_01&VEN_10EC&DEV_0269&SUBSYS_1D051064&REV_1002\\4&11369E1&0&0001",
+        "age_attribute": "Sistema de Som Nome",
+        "age_attribute_value": "Realtek High Definition Audio",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "00010416",
+        "age_attribute": "Teclado Refer\u00eancia",
+        "age_attribute_value": "00010416",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "HID\\UNIW0001&COL01\\5&26C74C0&0&0000",
+        "age_attribute": "Touchpad DeviceID",
+        "age_attribute_value": "HID\\UNIW0001&COL01\\5&26C74C0&0&0000",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_8086&DEV_A370&SUBSYS_00348086&REV_10\\3&11583659&0&A3",
+        "age_attribute": "Wireless DeviceID",
+        "age_attribute_value": "PCI\\VEN_8086&DEV_A370&SUBSYS_00348086&REV_10\\3&11583659&0&A3",
+        "age_register_date": "2020-04-23 16:47:59",
+        "age_last_check": "2020-04-23 16:47:59"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_8086&DEV_A370&SUBSYS_00348086&REV_10\\3&11583659&0&A3",
+        "age_attribute": "Wireless Modelo",
+        "age_attribute_value": "[00000001] Intel(R) Wireless-AC 9560 160MHz",
+        "age_register_date": "2020-04-23 16:48:00",
+        "age_last_check": "2020-04-23 16:48:00"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "PCI\\VEN_8086&DEV_A370&SUBSYS_00348086&REV_10\\3&11583659&0&A3",
+        "age_attribute": "Wireless Frequ\u00eancia",
+        "age_attribute_value": false,
+        "age_register_date": "2020-04-23 16:48:00",
+        "age_last_check": "2020-04-23 16:48:00"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "USB\\VID_04F2&PID_B641&MI_00\\6&815DCAF&0&0000",
+        "age_attribute": "Webcam DeviceID",
+        "age_attribute_value": "USB\\VID_04F2&PID_B641&MI_00\\6&815DCAF&0&0000",
+        "age_register_date": "2020-04-23 16:48:00",
+        "age_last_check": "2020-04-23 16:48:00"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "00001OEMstandard",
+        "age_attribute": "Bateria DeviceID",
+        "age_attribute_value": "00001OEMstandard",
+        "age_register_date": "2020-04-23 16:48:00",
+        "age_last_check": "2020-04-23 16:48:00"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "00001OEMstandard",
+        "age_attribute": "Bateria Tens\u00e3o",
+        "age_attribute_value": false,
+        "age_register_date": "2020-04-23 16:48:00",
+        "age_last_check": "2020-04-23 16:48:00"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "Avell High Performance",
+        "age_attribute": "Placa M\u00e3e Fabricante",
+        "age_attribute_value": "Avell High Performance",
+        "age_register_date": "2020-04-23 16:48:00",
+        "age_last_check": "2020-04-23 16:48:00"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "Avell High Performance",
+        "age_attribute": "Placa M\u00e3e Modelo",
+        "age_attribute_value": "Avell G1750 MUV / C65 MUV",
+        "age_register_date": "2020-04-23 16:48:00",
+        "age_last_check": "2020-04-23 16:48:00"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "Avell High Performance",
+        "age_attribute": "Placa M\u00e3e Vers\u00e3o",
+        "age_attribute_value": "Standard",
+        "age_register_date": "2020-04-23 16:48:00",
+        "age_last_check": "2020-04-23 16:48:00"
+    },
+    {
+        "name": "AVNB2004001",
+        "age_deviceid": "10.0.18363",
+        "age_attribute": "Sistema Operacional Vers\u00e3o de compila\u00e7\u00e3o",
+        "age_attribute_value": "10.0.18363",
+        "age_register_date": "2020-04-23 16:48:00",
+        "age_last_check": "2020-04-23 16:48:00"
+    }
+]
