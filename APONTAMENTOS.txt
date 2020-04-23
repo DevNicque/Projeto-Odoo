@@ -1,0 +1,63 @@
+
+ ** FEITO **
+
+Monitor marca: (ok)
+DISPLAY\BOE07D2\4&8A52DC4&0&UID265988
+pegar a string entre 'DISPLAY\' e a próxima contra-barra '\', e excluir os 4 últimos caracteres. Retorna a marca BOE, LG, DEL, etc...
+
+Monitor Frequência: (ok)
+cocatenar o valor com a string "Hz"
+
+Wireless Frequência: (agente) (ok)
+Campo Speed alterna. Retornar MaxSpeed.
+
+Wireless Modelo: (ok)
+Retirar os número antes do nome do modelo.
+
+Bateria: (agente) (ok)
+Campo DesignVoltage altera. Retornar DesignCapacity.
+
+Enviar os dados da PhysicalMemory com base nos slots de memória,
+utilizando DeviceLocator como filtro. Terão dois campos agora. (ok)
+
+Memoria Frequência: (ok)
+Cocatenar o valor com a string "Mhz"
+ - Mudança não aplicada (não funcionou)
+
+
+
+ ** A FAZER **
+
+Coletar Sistema operacional, bios, placa mãe:
+ - Sistema Operacional: No campo edição, concatenar Caption com OSArchitecture. (AGENTE)
+ - BIOS: Restringir os dados extraídos da query. (AGENTE)
+         Tratar o formato da string de data. (API)
+ - Placa Mãe: OK
+
+Armazenamento Capacidade: (HD e SSD) (correção) (API)
+Dividir por 1073741824 e cocatenar com a string "G" (ok)
+ - Aplicar um range de valores que retornam a capacidade comercial. (API)
+
+Teclado DeviceID: (a fazer) (AGENTE)
+Cocatenar DeviceID com Layout e enviar no campo DeviceID do Odoo.
+
+Placa de Vídeo Memória Dedicada: (INTEL e NVIDIA)
+Dividir por 1073741824 e cocatenar com a string "G" (ok)
+Obs: Tratar o bug do uint32. (futuro/não imediato) (AGENTE)
+Solução: Pegar a RAM do vídeo pelo Modelo da placa. (aplicar) (API)
+
+Teclado referência: (sugestão) (API)
+Converter código numérico para string (ABNT 2 ou 1) (ok)
+ - Especificar o formato do retorno como "ABNT2".
+
+Tratar queries com dois ou mais atributos para cocatenar (AGENTE)
+
+Trocar Gb por GB (API)
+
+Discutir a questão dos valores com string NULL na tela do Odoo.
+
+Discutir o DeviceID do sistema operacional, placa mãe, e bios.
+
+Mudar Mhz para MHz (API)
+
+
