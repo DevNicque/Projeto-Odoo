@@ -27,11 +27,48 @@ class AgentData(models.Model):
     @api.model
     def get_agent_data(self, payload):
         for attr in payload:
-            
+
             if attr["age_attribute"] == "Memória Capacidade":
-                age_attribute_value = int(attr["age_attribute_value"])
-                age_attribute_value /= 1073741824
-                age_attribute_value = str(age_attribute_value) + "G"
+                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+
+            elif attr["age_attribute"] == "Memoria Frequência":
+                age_attribute_value = str(attr["age_attribute_value"]) + "Mhz"
+
+            elif attr["age_attribute"] == "Tela Marca":
+                lista = attr["age_attribute_value"].split('\\')[1][:-4]
+                age_attribute_value = lista[1][:-4]
+
+            elif attr["age_attribute"] == "Tela Taxa de Atualização de Frame":
+                age_attribute_value = str(attr["age_attribute_value"]) + "Hz"
+
+            elif attr["age_attribute"] == "Placa de Vídeo Intel Memória Dedicada":
+                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+
+            #else if attr["age_attribute"] == "Placa de Vídeo Nvidia Memória Dedicada":
+            #    age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "G"
+            #OBS: falta tratar o bug do uint32
+
+            elif attr["age_attribute"] == "Armazenamento SSD Capacidade":
+                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+
+            elif attr["age_attribute"] == "Armazenamento HD Capacidade":
+                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+
+            elif attr["age_attribute"] == "Teclado Referência":
+                if attr["age_attribute_value"] == "00010416":
+                    age_attribute_value = "Portuguese (Brazilian ABNT2)"
+                elif attr["age_attribute_value"] == "00000416":
+                    age_attribute_value = "Portuguese (Brazilian ABNT)"
+                elif attr["age_attribute_value"] == "00000409":
+                    age_attribute_value = "United States - English"
+                elif attr["age_attribute_value"] == "00020409":
+                    age_attribute_value = "United States - International"
+
+            elif attr["age_attribute"] == "Wireless Modelo":
+                lista = attr["age_attribute_value"].split('] ')
+                lista.pop(0)
+                age_attribute_value = ''.join(lista)
+                
             else:
                 age_attribute_value = attr["age_attribute_value"]
 
