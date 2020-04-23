@@ -27,7 +27,6 @@ class AgentData(models.Model):
     @api.model
     def get_agent_data(self, payload):
         for attr in payload:
-
             # [word.lower() for word in s.split()]
             
             if attr["age_attribute"] == "Memória SLT1 Capacidade":
@@ -87,23 +86,23 @@ class AgentData(models.Model):
 
             elif attr["age_attribute"] == "Armazenamento SSD Capacidade":
                 age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
-                #capacidade = int(int(attr["age_attribute_value"])/1073741824))
-                #if capacidade <= 500 and capacidade >= 400:
-                #    age_attribute_value = "500GB"
-                #elif capacidade <= 250 and capacidade >= 100:
-                #    age_attribute_value = "250GB"
-                #elif capacidade <= 1000 and capacidade > 750:
-                #    age_attribute_value = "1TB"
-                #elif capacidade <= 2000 and capacidade > 1750:
-                #    age_attribute_value = "2TB"
-                #else:
-                #    age_attribute_value = "NULL"
+            #    capacidade = int(int(attr["age_attribute_value"])/1073741824))
+            #    if capacidade <= 500 and capacidade >= 400:
+            #        age_attribute_value = "500GB"
+            #    elif capacidade <= 250 and capacidade >= 100:
+            #        age_attribute_value = "250GB"
+            #    elif capacidade <= 1000 and capacidade > 750:
+            #        age_attribute_value = "1TB"
+            #    elif capacidade <= 2000 and capacidade > 1750:
+            #        age_attribute_value = "2TB"
+            #    else:
+            #        age_attribute_value = "NULL"
 
             elif attr["age_attribute"] == "Armazenamento HD Capacidade":
-                capacidade = int(int(attr["age_attribute_value"])/1073741824))
-                if capacidade <= 500 and capacidade >= 400:
+                capacidade = int(int(attr["age_attribute_value"])/1073741824)
+                if capacidade <= 500 and capacidade > 400:
                     age_attribute_value = "500GB"
-                elif capacidade <= 250 and capacidade >= 100:
+                elif capacidade <= 250 and capacidade > 100:
                     age_attribute_value = "250GB"
                 elif capacidade <= 1000 and capacidade > 750:
                     age_attribute_value = "1TB"
@@ -128,8 +127,8 @@ class AgentData(models.Model):
                 age_attribute_value = ''.join(lista)
 
             elif attr["age_attribute"] == "Bios Data":
-                # 20190819000000.000000+000
-                # \'%Y-%m-%d %H:%M:%S\'
+                #20190819000000.000000+000
+                #\'%Y-%m-%d %H:%M:%S\'
                 aux = attr["age_attribute_value"]
                 ano = aux[0:4]
                 mes = aux[4:6]
