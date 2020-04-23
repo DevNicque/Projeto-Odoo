@@ -29,36 +29,35 @@ class AgentData(models.Model):
         for attr in payload:
 
             if attr["age_attribute"] == "Memória SLT1 Capacidade":
-                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "Gb"
 
-            elif attr["age_attribute"] == "Memoria SLT1 Frequência":
+            elif attr["age_attribute"] == "Memória SLT1 Frequência":
                 age_attribute_value = str(attr["age_attribute_value"]) + "Mhz"
 
             elif attr["age_attribute"] == "Memória SLT2 Capacidade":
-                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "Gb"
 
-            elif attr["age_attribute"] == "Memoria SLT2 Frequência":
+            elif attr["age_attribute"] == "Memória SLT2 Frequência":
                 age_attribute_value = str(attr["age_attribute_value"]) + "Mhz"
 
             elif attr["age_attribute"] == "Tela Marca":
-                lista = attr["age_attribute_value"].split('\\')[1][:-4]
-                age_attribute_value = lista[1][:-4]
+                age_attribute_value = attr["age_attribute_value"].split('\\')[1][:-4]
 
             elif attr["age_attribute"] == "Tela Taxa de Atualização de Frame":
                 age_attribute_value = str(attr["age_attribute_value"]) + "Hz"
 
             elif attr["age_attribute"] == "Placa de Vídeo Intel Memória Dedicada":
-                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "Gb"
 
             #else if attr["age_attribute"] == "Placa de Vídeo Nvidia Memória Dedicada":
             #    age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "G"
             #OBS: falta tratar o bug do uint32
 
             elif attr["age_attribute"] == "Armazenamento SSD Capacidade":
-                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "Gb"
 
             elif attr["age_attribute"] == "Armazenamento HD Capacidade":
-                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "Gb"
 
             elif attr["age_attribute"] == "Teclado Referência":
                 if attr["age_attribute_value"] == "00010416":
@@ -91,12 +90,14 @@ class AgentData(models.Model):
                 date = attr["age_last_check"]
                 register_line.sudo().write({"age_last_check": date})
             else:
+                if age_attribute_value == False:
+                    age_attribute_value = "NULL"
                 vals = {
                     'name': attr["name"],
                     'age_deviceid': attr['age_deviceid'],
                     'age_attribute': attr['age_attribute'],
                     'age_attribute_value': age_attribute_value,
                     'age_register_date': attr['age_register_date'],
-                    'age_last_check': attr['age_last_check']}
+                    'age_last_check': attr['age_last_check']} 
                 self.sudo().create(vals)
         return True
