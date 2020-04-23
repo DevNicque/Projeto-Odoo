@@ -28,10 +28,16 @@ class AgentData(models.Model):
     def get_agent_data(self, payload):
         for attr in payload:
 
-            if attr["age_attribute"] == "Memória Capacidade":
+            if attr["age_attribute"] == "Memória SLT1 Capacidade":
                 age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
 
-            elif attr["age_attribute"] == "Memoria Frequência":
+            elif attr["age_attribute"] == "Memoria SLT1 Frequência":
+                age_attribute_value = str(attr["age_attribute_value"]) + "Mhz"
+
+            elif attr["age_attribute"] == "Memória SLT2 Capacidade":
+                age_attribute_value = str(int(attr["age_attribute_value"])/1073741824) + "Gb"
+
+            elif attr["age_attribute"] == "Memoria SLT2 Frequência":
                 age_attribute_value = str(attr["age_attribute_value"]) + "Mhz"
 
             elif attr["age_attribute"] == "Tela Marca":
@@ -68,7 +74,7 @@ class AgentData(models.Model):
                 lista = attr["age_attribute_value"].split('] ')
                 lista.pop(0)
                 age_attribute_value = ''.join(lista)
-                
+
             else:
                 age_attribute_value = attr["age_attribute_value"]
 
