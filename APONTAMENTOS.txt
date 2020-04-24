@@ -38,6 +38,10 @@ Dividir por 1073741824 e cocatenar com a string "G" (ok)
  - Aplicar um range de valores que retornam a capacidade comercial. (API)
 Tratar o formato da string de data. (API)
 
+Teclado referência: (API) (ok)
+Converter código numérico para string (ABNT 2 ou 1) (ok)
+
+
  ** A FAZER **
 
 Coletar Sistema operacional, bios, placa mãe:
@@ -57,21 +61,42 @@ Tratar queries com dois ou mais atributos para cocatenar (AGENTE)
 Discutir a questão dos valores com string NULL na tela do Odoo. (mackilem)
 
 Discutir o DeviceID do sistema operacional, placa mãe, e bios.
+Chave de identificação é pelo nome do atributo. (Mostrar apenas no site)
 
-Teclado referência: (sugestão) (API)
-Converter código numérico para string (ABNT 2 ou 1) (ok)
+Teclado referência: (sugestão) (permanecer do jeito que tá)
  - Especificar o formato do retorno como "ABNT2".
+Layout do teclado é um código de Layout + Locale. (informação útil)
 
-Necessidade de dados de teste para idealizarmos um padrão de dicionário aplicável a todos os possíveis casos.
+Necessidade de dados de teste para idealizarmos um padrão de dicionário aplicável a todos os possíveis casos. (ok) (Utilizar os dados do WinAudit)
 
-Bug do uint32: explicar o problema e a solução que aplicamos com base no modelo da placa de vídeo.
+Bug do uint32: explicar o problema e a solução que aplicamos com base no modelo da placa de vídeo. (ok) (temporario)
 
 O valor da capacidade do HD não está vindo arredondado. (Diferença valor comercial para o valor real)
 
-Discutir o valor do SSD. Se devemos aplicar a regra do valor comercial.
+Discutir o valor do SSD. Se devemos aplicar a regra do valor comercial. (ok)
 
-Discutir sobre o valor da versão da Bios (Valor na Intel é diferente do WMI, mostrar print)
+Discutir sobre o valor da versão da Bios (Valor na Intel é diferente do WMI, mostrar print): Focar apenas no que é possível extrair no WMI.
 
-Comentar sobre o significado do código de fabricante dos chips de memória: Dizer sobre os consórcios IEEE e PCI SIG. O que nós sugerimos colocar com base nos dados que os consórcios disponibilizam e o que o Anderson sugere colocar.
+Comentar sobre o significado do código de fabricante dos chips de memória: Dizer sobre os consórcios IEEE e PCI SIG. O que nós sugerimos colocar com base nos dados que os consórcios disponibilizam e o que o Anderson sugere colocar. (ok) (Coletar dados do DRAM SPD para discussão com o fabricante das placas de memórias)
 
+
+
+MD5 -> faz um parse do binário do arquivo e gera um hash
+ - Utilizar para comparar.
+
+SPD -> serial presence detect
+
+
+ ** A FAZER **
+
+Fazer a análise dos dados do WinAudit a fim de identificar as tags do html que contém os dados que o agente coleta.
+
+Fazer o script que extraí os dados dessas tags.
+
+Necessário fazer testes de troca de componentes.
+
+
+ ** REGRAS PARA CROSSCHECK (CRUZAMENTO DE CONFIRMAÇÃO) **
+
+  1. Vão ter dados que servirão ao crosscheck e terão dados que só serão usados para mostrar no site. (Placa Mãe, Sistema Operacional, Bios)
 

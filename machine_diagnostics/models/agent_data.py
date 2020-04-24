@@ -53,53 +53,53 @@ class AgentData(models.Model):
                 modelo = attr["age_attribute_value"]
                 words = [word.lower() for word in modelo.split()]
 
-                if "geforce" in words and "gtx" in words and "1650" in words:
+                if ("geforce" and "gtx" and "1650") in words:
                     age_attribute_value = "4GB"
 
-                elif "geforce" in words and "gtx" in words and "1050" in words:
+                elif ("geforce" and "gtx" and "1050") in words:
                     age_attribute_value = "3GB"
 
-                elif "geforce" in words and "gtx" in words and "1050" in words:
+                elif ("geforce" and "gtx" and "1050") in words:
                     age_attribute_value = "3GB"
 
-                elif "geforce" in words and "gtx" in words and "1660TI" in words:
+                elif ("geforce" and "gtx" and "1660TI") in words:
                     age_attribute_value = "6GB"
 
-                elif "geforce" in words and "rtx" in words and "2070" in words and "MAX-Q" in words:
+                elif ("geforce" and "rtx" and "2070" and "MAX-Q") in words:
                     age_attribute_value = "8GB"
 
-                elif "geforce" in words and "rtx" in words and "2060" in words:
+                elif ("geforce" and "rtx" and "2060") in words:
                     age_attribute_value = "6GB"
 
-                elif "geforce" in words and "rtx" in words and "2070" in words:
+                elif ("geforce" and "rtx" and "2070") in words:
                     age_attribute_value = "8GB"
 
-                elif "geforce" in words and "rtx" in words and "2080" in words and "MAX-Q" in words:
+                elif ("geforce" and "rtx" and "2080" and "MAX-Q") in words:
                     age_attribute_value = "8GB"
 
                 else:
                     age_attribute_value = "NULL"
-            #OBS: falta tratar o bug do uint32
+                #OBS: falta tratar o bug do uint32
 
             elif attr["age_attribute"] == "Placa de Vídeo Intel Memória Dedicada":
                 age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
 
             elif attr["age_attribute"] == "Armazenamento SSD Capacidade":
-                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
-            #    capacidade = int(int(attr["age_attribute_value"])/1073741824))
-            #    if capacidade <= 500 and capacidade >= 400:
-            #        age_attribute_value = "500GB"
-            #    elif capacidade <= 250 and capacidade >= 100:
-            #        age_attribute_value = "250GB"
-            #    elif capacidade <= 1000 and capacidade > 750:
-            #        age_attribute_value = "1TB"
-            #    elif capacidade <= 2000 and capacidade > 1750:
-            #        age_attribute_value = "2TB"
-            #    else:
-            #        age_attribute_value = "NULL"
+                #age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
+                capacidade = int(attr["age_attribute_value"])/1073741824
+                if capacidade <= 500 and capacidade >= 400:
+                    age_attribute_value = "500GB"
+                elif capacidade <= 250 and capacidade >= 100:
+                    age_attribute_value = "250GB"
+                elif capacidade <= 1000 and capacidade > 750:
+                    age_attribute_value = "1TB"
+                elif capacidade <= 2000 and capacidade > 1750:
+                    age_attribute_value = "2TB"
+                else:
+                    age_attribute_value = "NULL"
 
             elif attr["age_attribute"] == "Armazenamento HD Capacidade":
-                capacidade = int(int(attr["age_attribute_value"])/1073741824)
+                capacidade = int(attr["age_attribute_value"])/1073741824
                 if capacidade <= 500 and capacidade > 400:
                     age_attribute_value = "500GB"
                 elif capacidade <= 250 and capacidade > 100:
@@ -112,12 +112,16 @@ class AgentData(models.Model):
                     age_attribute_value = "NULL"
 
             elif attr["age_attribute"] == "Teclado Referência":
+
                 if attr["age_attribute_value"] == "00010416":
                     age_attribute_value = "Portuguese (Brazilian ABNT2)"
+
                 elif attr["age_attribute_value"] == "00000416":
                     age_attribute_value = "Portuguese (Brazilian ABNT)"
+
                 elif attr["age_attribute_value"] == "00000409":
                     age_attribute_value = "United States - English"
+
                 elif attr["age_attribute_value"] == "00020409":
                     age_attribute_value = "United States - International"
 
