@@ -8,6 +8,7 @@
       <tree string="Dados do Agente" >
         <field name="name" />
         <field name="age_deviceid" />
+        <field name="age_devicesn" />
         <field name="age_attribute" />
         <field name="age_attribute_value" />
         <field name="age_register_date" />

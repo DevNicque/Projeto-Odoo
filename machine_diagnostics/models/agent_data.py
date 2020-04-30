@@ -11,6 +11,9 @@ class AgentData(models.Model):
     age_deviceid = fields.Char(
         string="ID Componente",
         required=True)
+    age_devicesn = fields.Char(
+        string="ID Único",
+        required=True)
     age_attribute = fields.Char(
         string="Atributo",
         required=True)
@@ -26,7 +29,8 @@ class AgentData(models.Model):
 
     @api.model
     def get_agent_data(self, payload):
-        lista = []
+        lista_serial = []
+        lista_componente = []
         for attr in payload:
             # [word.lower() for word in s.split()]
             
@@ -146,11 +150,11 @@ class AgentData(models.Model):
             domain = [
                 ("name", "=", attr["name"]),
                 ("age_deviceid", "=", attr["age_deviceid"]),
+                ("age_devicesn", "=", attr["age_devicesn"]),
                 ("age_attribute", "=", attr["age_attribute"]),
                 ("age_attribute_value", "=", age_attribute_value),
                 ]
             register_line = self.search(domain, limit=1)
-            lista.append(register_line)
             # TODO: escrever no banco por CR
             # if register_line:
             #     date = attr["age_last_check"]
@@ -162,6 +166,7 @@ class AgentData(models.Model):
                 vals = {
                     'name': attr["name"],
                     'age_deviceid': attr['age_deviceid'],
+                    'age_devicesn': attr['age_devicesn'],
                     'age_attribute': attr['age_attribute'],
                     'age_attribute_value': age_attribute_value,
                     'age_register_date': attr['age_register_date'],
@@ -172,11 +177,13 @@ class AgentData(models.Model):
                 if register_line:
                     register_line.sudo().write({"age_status": "Trocado"})
                 self.sudo().create(vals)
+            lista_serial.append(attr["age_devicesn"])
+            lista_componente.append(attr["age_attribute"])
 
-            register_agent = self.search([("name", "=", attr["name"])])
-            for register in register_agent:
-                if register["age_deviceid"] == attr["age_deviceid"]:
-                    register.sudo().write({"age_status": "Existe"})
+        register_agent = self.search([("name", "=", attr["name"])])
+        for register in register_agent:
+            if not(register["age_attribute"] in lista_componente and register["age_devicesn"] in lista_serial):
+                register.sudo().write({"age_status": "Removido"})
             # componente removido/inativo
 
         #começa aqui
