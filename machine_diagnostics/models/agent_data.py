@@ -175,6 +175,7 @@ class AgentData(models.Model):
 
             register_agent = self.search([("name", "=", attr["name"])])
             register_agent[0].sudo().write({"age_status": "Teste"})
+            register_agent[4].sudo().write({"age_status": "Teste2"})
             # componente removido/inativo
 
         #começa aqui
