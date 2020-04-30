@@ -29,17 +29,6 @@ class AgentData(models.Model):
 
     @api.model
     def get_agent_data(self, payload):
-        
-        # Passo para determinar o que existe no Odoo e que não existe no payload, sendo um componente "removido":
-        register_agent = self.search([("name", "=", payload[0]["name"])])
-        '''
-        for register in register_agent:
-            if not(register["age_attribute"] in [x["age_attribute"] for x in payload]) and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload]) and (register["age_status"] != "Trocado"):
-                # somente caso o componente não tenha sido trocando antes.
-                register.sudo().write({"age_status": "Removido"})
-            # componente removido/inativo
-        '''
-        listinha = []
 
         # Passo para verificar se o que tem no Payload existe no Odoo:
         for attr in payload:
@@ -167,16 +156,14 @@ class AgentData(models.Model):
             register_line = self.search(domain, limit=1)
             # TODO: escrever no banco por CR
             if register_line:
-                listinha.append(register_line)
                 # caso de o registro já existir no Odoo mas está com status de removido
-                if register_line["age_status"] == "Removido":
+                if register_line["age_status"] == "Removido" or register_line["age_status"] == "Trocado":
                     # register_line["age_status"] = "Recolocado" # ERRADO
                     register_line.sudo().write({"age_status": "Recolocado"})
             else:
                 # caso de o registro não existe no Odoo
                 # if age_attribute_value == False:
                 #     age_attribute_value = "NULL"
-
                 vals = {
                     'name': attr["name"],
                     'age_deviceid': attr['age_deviceid'],
@@ -188,16 +175,13 @@ class AgentData(models.Model):
                 # componente adicionado
 
                 # Bloco para checar se já existe um componente com o mesmo nome no Odoo e muda o status para "Trocado"
+                
                 register_line = self.search([("name", "=", attr["name"]), ("age_attribute", "=", attr['age_attribute'])], limit=1)
-                if register_line and not(register_line["age_status"] == "Removido"):
+                if register_line and not(register_line["age_status"] == "Removido") and not(register_line["age_status"] == "Trocado"):
                     register_line.sudo().write({"age_status": "Trocado"})
 
                 if not((vals["age_deviceid"]) == False):
                     # Precisa ocorrer após a verificação do status de "troca"
                     self.sudo().create(vals)
-    
-            for register in register_agent:
-                if (register not in listinha) and (register["age_status"] != "Trocado"):
-                    register.sudo().write({"age_status": "Removido"})
         
         return True
