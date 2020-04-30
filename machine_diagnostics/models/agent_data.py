@@ -174,8 +174,9 @@ class AgentData(models.Model):
                 self.sudo().create(vals)
 
             register_agent = self.search([("name", "=", attr["name"])])
-            register_agent[0].sudo().write({"age_status": "Teste"})
-            register_agent[4].sudo().write({"age_status": "Teste2"})
+            for register in register_agent:
+                if register["age_deviceid"] == attr["age_deviceid"]:
+                    register.sudo().write({"age_status": "Existe"})
             # componente removido/inativo
 
         #começa aqui
