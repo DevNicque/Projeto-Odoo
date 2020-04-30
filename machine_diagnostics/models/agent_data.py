@@ -9,10 +9,10 @@ class AgentData(models.Model):
         string="Número de Série",
         required=True)
     age_deviceid = fields.Char(
-        string="ID Componente",
+        string="ID Modelo",
         required=True)
     age_devicesn = fields.Char(
-        string="ID Único",
+        string="ID Componente",
         required=True)
     age_attribute = fields.Char(
         string="Atributo",

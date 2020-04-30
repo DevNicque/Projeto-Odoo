@@ -8,6 +8,8 @@ class DiagnosticRecords(models.Model):
 
     name = fields.Char(
         string="Número de Série", )
+    diagrec_deviceid = fields.Char(
+        string="ID Modelo", )
     diagrec_component = fields.Char(
         string="Componente", )
     diagrec_property = fields.Char(
@@ -18,8 +20,6 @@ class DiagnosticRecords(models.Model):
         string="Data Cadastro")
     diagrec_last_check = fields.Datetime(
         string="Última Verificação", )
-    diagrec_deviceid = fields.Char(
-        string="ID Componente", )
     agent_data_id = fields.Many2one(
         string="Agent Data",
         comodel_name="agent.data", )
