@@ -10,7 +10,7 @@ class AgentData(models.Model):
         required=True)
     age_deviceid = fields.Char(
         string="ID Modelo",
-        required=True)
+        required=False)
     age_devicesn = fields.Char(
         string="ID Componente",
         required=False)
@@ -19,7 +19,7 @@ class AgentData(models.Model):
         required=True)
     age_attribute_value = fields.Char(
         string="Valor Atributo",
-        required=True)
+        required=False)
     age_register_date = fields.Datetime(
         string="Data Cadastro",
         required=True)
@@ -29,8 +29,6 @@ class AgentData(models.Model):
 
     @api.model
     def get_agent_data(self, payload):
-        lista_serial = []
-        lista_componente = []
 
         register_agent = self.search([("name", "=", payload[0]["name"])])
         for register in register_agent:
@@ -163,10 +161,6 @@ class AgentData(models.Model):
                 ]
             register_line = self.search(domain, limit=1)
             # TODO: escrever no banco por CR
-            # if register_line:
-            #     date = attr["age_last_check"]
-                # register_line.sudo().write({"age_last_check": date})
-                # componente já existente
             if not(register_line):
                 if age_attribute_value == False:
                     age_attribute_value = "NULL"
