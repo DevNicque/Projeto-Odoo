@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_manager,Diagnostic Manager,model_diagnostic_records,group_machine_diagnostics,1,1,1,1
 access_user,Diagnostic User,model_diagnostic_records,group_machine_diagnostics,1,0,0,0
-access_agente,Agente,model_agent_data,group_machine_diagnostics,0,0,1,0
+access_agente,Agente,model_agent_data,group_machine_diagnostics,0,1,1,0
 access_data_user,User,model_agent_data,group_machine_diagnostics,1,0,0,1
