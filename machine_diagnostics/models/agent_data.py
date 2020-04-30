@@ -33,7 +33,7 @@ class AgentData(models.Model):
         # Passo para determinar o que existe no Odoo e que não existe no payload, sendo um componente "removido":
         register_agent = self.search([("name", "=", payload[0]["name"])])
         for register in register_agent:
-            if not((register["age_attribute"] in [x["age_attribute"] for x in payload]) and not((register["age_devicesn"] in [x["age_devicesn"] for x in payload]) and (register["age_status"] != "Trocado"):
+            if not(register["age_attribute"] in [x["age_attribute"] for x in payload]) and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload]) and (register["age_status"] != "Trocado"):
                 # somente caso o componente não tenha sido trocando antes.
                 register.sudo().write({"age_status": "Removido"})
             # componente removido/inativo
