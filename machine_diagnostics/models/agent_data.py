@@ -186,7 +186,5 @@ class AgentData(models.Model):
                 if register_line:
                     register_line.sudo().write({"age_status": "Trocado"})
                 self.sudo().create(vals)
-            lista_serial.append(attr["age_devicesn"])
-            lista_componente.append(attr["age_attribute"])
         
         return True
