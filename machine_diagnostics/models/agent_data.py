@@ -158,8 +158,9 @@ class AgentData(models.Model):
             if register_line:
                 # caso de o registro já existir no Odoo mas está com status de removido
                 if register_line["age_status"] == "Removido" or register_line["age_status"] == "Trocado":
-                    # register_line["age_status"] = "Recolocado" # ERRADO
                     register_line.sudo().write({"age_status": "Recolocado"})
+                elif register_line["age_status"] == "Recolocado":
+                    register_line.sudo().write({"age_status": "Trocado"})
             else:
                 # caso de o registro não existe no Odoo
                 # if age_attribute_value == False:
