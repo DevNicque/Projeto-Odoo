@@ -39,6 +39,7 @@ class AgentData(models.Model):
                 register.sudo().write({"age_status": "Removido"})
             # componente removido/inativo
         '''
+        listinha = []
 
         # Passo para verificar se o que tem no Payload existe no Odoo:
         for attr in payload:
@@ -166,7 +167,7 @@ class AgentData(models.Model):
             register_line = self.search(domain, limit=1)
             # TODO: escrever no banco por CR
             if register_line:
-                register_agent.remove(register_line)
+                listinha.append(register_line)
                 # caso de o registro já existir no Odoo mas está com status de removido
                 if register_line["age_status"] == "Removido":
                     # register_line["age_status"] = "Recolocado" # ERRADO
@@ -196,7 +197,7 @@ class AgentData(models.Model):
                     self.sudo().create(vals)
     
             for register in register_agent:
-                if register["age_status"] != "Trocado":
+                if (register not in listinha) and (register["age_status"] != "Trocado"):
                     register.sudo().write({"age_status": "Removido"})
         
         return True
