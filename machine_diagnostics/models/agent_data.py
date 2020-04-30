@@ -173,7 +173,6 @@ class AgentData(models.Model):
                     'age_attribute': attr['age_attribute'],
                     'age_attribute_value': age_attribute_value,
                     'age_register_date': attr['age_register_date'],
-                    # 'age_last_check': attr['age_last_check'],
                     'age_status': 'Adicionado'}
                 # componente adicionado
 
@@ -181,7 +180,7 @@ class AgentData(models.Model):
                 if register_line and not(register_line["age_status"] == "Removido"):
                     register_line.sudo().write({"age_status": "Trocado"})
 
-                if not((vals["age_devicesn"] and vals["age_deviceid"]) == False):
+                if not((vals["age_deviceid"]) == False):
                     self.sudo().create(vals)
         
         return True
