@@ -163,10 +163,14 @@ class AgentData(models.Model):
             if not(register_line):
                 if age_attribute_value == False:
                     age_attribute_value = "NULL"
+                if age_devicesn == False:
+                    age_devicesn = "NULL"
+                else:
+                    age_devicesn = attr['age_devicesn']
                 vals = {
                     'name': attr["name"],
                     'age_deviceid': attr['age_deviceid'],
-                    'age_devicesn': attr['age_devicesn'],
+                    'age_devicesn': age_devicesn,
                     'age_attribute': attr['age_attribute'],
                     'age_attribute_value': age_attribute_value,
                     'age_register_date': attr['age_register_date'],
@@ -180,11 +184,10 @@ class AgentData(models.Model):
             lista_serial.append(attr["age_devicesn"])
             lista_componente.append(attr["age_attribute"])
 
-        '''
         register_agent = self.search([("name", "=", attr["name"])])
         for register in register_agent:
             if not(register["age_attribute"] in lista_componente and register["age_devicesn"] in lista_serial):
                 register.sudo().write({"age_status": "Removido"})
             # componente removido/inativo
-        '''
+        
         return True
