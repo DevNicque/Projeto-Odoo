@@ -163,7 +163,7 @@ class AgentData(models.Model):
             if not(register_line):
                 if age_attribute_value == False:
                     age_attribute_value = "NULL"
-                if age_devicesn == False:
+                if attr["age_devicesn"] == False:
                     age_devicesn = "NULL"
                 else:
                     age_devicesn = attr['age_devicesn']
