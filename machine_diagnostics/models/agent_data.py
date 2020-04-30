@@ -32,11 +32,13 @@ class AgentData(models.Model):
         
         # Passo para determinar o que existe no Odoo e que não existe no payload, sendo um componente "removido":
         register_agent = self.search([("name", "=", payload[0]["name"])])
+        '''
         for register in register_agent:
             if not(register["age_attribute"] in [x["age_attribute"] for x in payload]) and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload]) and (register["age_status"] != "Trocado"):
                 # somente caso o componente não tenha sido trocando antes.
                 register.sudo().write({"age_status": "Removido"})
             # componente removido/inativo
+        '''
 
         # Passo para verificar se o que tem no Payload existe no Odoo:
         for attr in payload:
@@ -164,9 +166,11 @@ class AgentData(models.Model):
             register_line = self.search(domain, limit=1)
             # TODO: escrever no banco por CR
             if register_line:
+                register_agent.remove(register_line)
                 # caso de o registro já existir no Odoo mas está com status de removido
                 if register_line["age_status"] == "Removido":
-                    register_line["age_status"] = "Recolocado"
+                    # register_line["age_status"] = "Recolocado" # ERRADO
+                    register_line.sudo().write({"age_status": "Recolocado"})
             else:
                 # caso de o registro não existe no Odoo
                 # if age_attribute_value == False:
@@ -190,5 +194,9 @@ class AgentData(models.Model):
                 if not((vals["age_deviceid"]) == False):
                     # Precisa ocorrer após a verificação do status de "troca"
                     self.sudo().create(vals)
+    
+            for register in register_agent:
+                if register["age_status"] != "Trocado":
+                    register.sudo().write({"age_status": "Removido"})
         
         return True
