@@ -180,11 +180,11 @@ class AgentData(models.Model):
             lista_serial.append(attr["age_devicesn"])
             lista_componente.append(attr["age_attribute"])
 
+        '''
         register_agent = self.search([("name", "=", attr["name"])])
         for register in register_agent:
             if not(register["age_attribute"] in lista_componente and register["age_devicesn"] in lista_serial):
                 register.sudo().write({"age_status": "Removido"})
             # componente removido/inativo
-
-        #começa aqui
+        '''
         return True
