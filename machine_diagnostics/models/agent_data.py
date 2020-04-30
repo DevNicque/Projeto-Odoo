@@ -187,4 +187,4 @@ class AgentData(models.Model):
             # componente removido/inativo
 
         #começa aqui
-        return lista
+        return True
