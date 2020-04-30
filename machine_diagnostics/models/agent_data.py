@@ -20,12 +20,13 @@ class AgentData(models.Model):
     age_register_date = fields.Datetime(
         string="Data Cadastro",
         required=True)
-    age_last_check = fields.Datetime(
-        string="Última Verificação",
+    age_status = fields.Char( # adicionado, removido.
+        string="Status",
         required=True)
 
     @api.model
     def get_agent_data(self, payload):
+        lista = []
         for attr in payload:
             # [word.lower() for word in s.split()]
             
@@ -149,12 +150,13 @@ class AgentData(models.Model):
                 ("age_attribute_value", "=", age_attribute_value),
                 ]
             register_line = self.search(domain, limit=1)
-
+            lista.append(register_line)
             # TODO: escrever no banco por CR
-            if register_line:
-                date = attr["age_last_check"]
-                register_line.sudo().write({"age_last_check": date})
-            else:
+            # if register_line:
+            #     date = attr["age_last_check"]
+                # register_line.sudo().write({"age_last_check": date})
+                # componente já existente
+            if not(register_line):
                 if age_attribute_value == False:
                     age_attribute_value = "NULL"
                 vals = {
@@ -163,6 +165,12 @@ class AgentData(models.Model):
                     'age_attribute': attr['age_attribute'],
                     'age_attribute_value': age_attribute_value,
                     'age_register_date': attr['age_register_date'],
-                    'age_last_check': attr['age_last_check']} 
+                    # 'age_last_check': attr['age_last_check'],
+                    'age_status': 'adicionado'}
+                # componente adicionado
+                register_line = self.search([("name", "=", attr["name"]), ("age_attribute", "=", attr['age_attribute'])], limit=1)
+                if register_line:
+                    register_line.sudo().write({"age_status": "trocado"})
                 self.sudo().create(vals)
-        return True
+            # componente removido/inativo
+        return lista

@@ -11,7 +11,7 @@
         <field name="age_attribute" />
         <field name="age_attribute_value" />
         <field name="age_register_date" />
-        <field name="age_last_check" />
+        <field name="age_status" />
       </tree>
     </field>
   </record>
