@@ -13,7 +13,7 @@ class AgentData(models.Model):
         required=True)
     age_devicesn = fields.Char(
         string="ID Componente",
-        required=True)
+        required=False)
     age_attribute = fields.Char(
         string="Atributo",
         required=True)
@@ -163,10 +163,9 @@ class AgentData(models.Model):
             if not(register_line):
                 if age_attribute_value == False:
                     age_attribute_value = "NULL"
-                if attr["age_devicesn"] == False:
-                    age_devicesn = "NULL"
-                else:
-                    age_devicesn = attr['age_devicesn']
+
+                age_devicesn = attr['age_devicesn']
+                
                 vals = {
                     'name': attr["name"],
                     'age_deviceid': attr['age_deviceid'],
