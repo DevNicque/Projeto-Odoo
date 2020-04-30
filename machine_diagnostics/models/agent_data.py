@@ -32,7 +32,7 @@ class AgentData(models.Model):
 
         register_agent = self.search([("name", "=", payload[0]["name"])])
         for register in register_agent:
-            if not(register["age_attribute"] in [x["age_attribute"] for x in payload] and register["age_devicesn"] in [x["age_devicesn"] for x in payload]):
+            if not((register["age_attribute"] in [x["age_attribute"] for x in payload]) and (register["age_devicesn"] in [x["age_devicesn"] for x in payload]) and not(register["age_status"] == "Trocado")):
                 register.sudo().write({"age_status": "Removido"})
             # componente removido/inativo
 
@@ -176,9 +176,12 @@ class AgentData(models.Model):
                     # 'age_last_check': attr['age_last_check'],
                     'age_status': 'Adicionado'}
                 # componente adicionado
+
                 register_line = self.search([("name", "=", attr["name"]), ("age_attribute", "=", attr['age_attribute'])], limit=1)
-                if register_line:
+                if register_line and not(register_line["age_status"] == "Removido"):
                     register_line.sudo().write({"age_status": "Trocado"})
-                self.sudo().create(vals)
+
+                if not((vals["age_devicesn"] and vals["age_deviceid"]) == False):
+                    self.sudo().create(vals)
         
         return True
