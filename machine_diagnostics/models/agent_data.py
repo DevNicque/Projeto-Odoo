@@ -36,7 +36,7 @@ class AgentData(models.Model):
         for register in register_agent:
             #if (register["age_devicesn"] != False) and (register["age_devicesn"] in [x["age_devicesn"] for x in payload]):
             #    "do nothing"
-            if ((register["age_devicesn"] != False) and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload])) and (register["age_status"] == "Adicionado" or register["age_status"] == "Recolocado"):
+            if (register["age_devicesn"] and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload])) and (register["age_status"] == ("Adicionado" or "Recolocado")):
                 register.sudo().write({"age_status": "Removido"})
 
         for attr in payload:
