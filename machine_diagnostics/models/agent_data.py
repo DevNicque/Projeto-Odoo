@@ -33,11 +33,14 @@ class AgentData(models.Model):
         # Passo para verificar se o que tem no Payload existe no Odoo:
 
         register_agent = self.search([{"name", "=", payload[0]["name"]}])
-        for register in register_agent:
+        for n in register_agent:
+            n.sudo().write({"age_status": "Alooow"})
+        register_agent[3].sudo().write({"age_status": "Teste"})
+        #for register in register_agent:
             #if (register["age_devicesn"] != False) and (register["age_devicesn"] in [x["age_devicesn"] for x in payload]):
             #    "do nothing"
-            if (register["age_devicesn"] and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload])) and (register["age_status"] == ("Adicionado" or "Recolocado")):
-                register.sudo().write({"age_status": "Removido"})
+        #    if (register["age_devicesn"] and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload])) and (register["age_status"] == ("Adicionado" or "Recolocado")):
+        #        register.sudo().write({"age_status": "Removido"})
 
         for attr in payload:
             
