@@ -88,32 +88,44 @@ class AgentData(models.Model):
             elif attr["age_attribute"] == "Placa de Vídeo Intel Memória Dedicada":
                 age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
 
-            elif attr["age_attribute"] == "Armazenamento SSD Capacidade":
-                #age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
-                capacidade = int(attr["age_attribute_value"])/1073741824
-                if capacidade <= 500 and capacidade >= 400:
-                    age_attribute_value = "500GB"
-                elif capacidade <= 250 and capacidade >= 100:
-                    age_attribute_value = "250GB"
-                elif capacidade <= 1000 and capacidade > 750:
-                    age_attribute_value = "1TB"
-                elif capacidade <= 2000 and capacidade > 1750:
-                    age_attribute_value = "2TB"
-                else:
-                    age_attribute_value = "NULL"
+            elif attr["age_attribute"] == "Armazenamento SSD SLT1 Capacidade":
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
+            
+            elif attr["age_attribute"] == "Armazenamento SSD SLT2 Capacidade":
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
+            
+            elif attr["age_attribute"] == "Armazenamento SSD SLT3 Capacidade":
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
+                #capacidade = int(attr["age_attribute_value"])/1073741824
+                #if capacidade <= 500 and capacidade >= 400:
+                #    age_attribute_value = "500GB"
+                #elif capacidade <= 250 and capacidade >= 100:
+                #    age_attribute_value = "250GB"
+                #elif capacidade <= 1000 and capacidade > 750:
+                #    age_attribute_value = "1TB"
+                #elif capacidade <= 2000 and capacidade > 1750:
+                #    age_attribute_value = "2TB"
+                #else:
+                #    age_attribute_value = "NULL"
 
-            elif attr["age_attribute"] == "Armazenamento HD Capacidade":
-                capacidade = int(attr["age_attribute_value"])/1073741824
-                if capacidade <= 500 and capacidade > 400:
-                    age_attribute_value = "500GB"
-                elif capacidade <= 250 and capacidade > 100:
-                    age_attribute_value = "250GB"
-                elif capacidade <= 1000 and capacidade > 750:
-                    age_attribute_value = "1TB"
-                elif capacidade <= 2000 and capacidade > 1750:
-                    age_attribute_value = "2TB"
-                else:
-                    age_attribute_value = "NULL"
+            elif attr["age_attribute"] == "Armazenamento HD SLT1 Capacidade":
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
+                #capacidade = int(attr["age_attribute_value"])/1073741824
+                #if capacidade <= 500 and capacidade > 400:
+                #    age_attribute_value = "500GB"
+                #elif capacidade <= 250 and capacidade > 100:
+                #    age_attribute_value = "250GB"
+                #elif capacidade <= 1000 and capacidade > 750:
+                #    age_attribute_value = "1TB"
+                #elif capacidade <= 2000 and capacidade > 1750:
+                #    age_attribute_value = "2TB"
+                #else:
+                #    age_attribute_value = "NULL"
+            elif attr["age_attribute"] == "Armazenamento HD SLT2 Capacidade":
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
+
+            elif attr["age_attribute"] == "Armazenamento HD SLT3 Capacidade":
+                age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
 
             elif attr["age_attribute"] == "Teclado Referência":
 
