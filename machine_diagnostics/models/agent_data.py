@@ -34,11 +34,11 @@ class AgentData(models.Model):
 
         register_agent = self.search([{"name", "=", payload[0]["name"]}])
         for register in register_agent:
-            if (register["age_devicesn"] != False) and (register["age_devicesn"] in [x["age_devicesn"] for x in payload]):
-                "do nothing"
-            elif register["age_status"] == "Adicionado" or register["age_status"] == "Recolocado":
+            #if (register["age_devicesn"] != False) and (register["age_devicesn"] in [x["age_devicesn"] for x in payload]):
+            #    "do nothing"
+            if ((register["age_devicesn"] != False) and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload])) and (register["age_status"] == "Adicionado" or register["age_status"] == "Recolocado"):
                 register.sudo().write({"age_status": "Removido"})
-                
+
         for attr in payload:
             
             if attr["age_attribute"] == "Memória SLT1 Capacidade":
