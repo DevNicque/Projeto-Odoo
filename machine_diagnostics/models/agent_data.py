@@ -31,11 +31,6 @@ class AgentData(models.Model):
     def get_agent_data(self, payload):
 
         # Passo para verificar se o que tem no Payload existe no Odoo:
-
-        # for n in register_agent:
-        #     n.sudo().write({"age_status": "Alooow"})
-        # register_agent[3].sudo().write({"age_status": "Teste"})
-
         for attr in payload:
             
             if attr["age_attribute"] == "Memória SLT1 Capacidade":
@@ -181,8 +176,8 @@ class AgentData(models.Model):
                     'age_register_date': attr['age_register_date'],
                     'age_status': 'Adicionado'}
                 # componente adicionado
-
-                # Bloco para checar se já existe um componente com o mesmo nome no Odoo e muda o status para "Trocado"
+                
+                # Bloco para checar se o componente não foi removido, e se não, se já existe um componente com o mesmo nome no Odoo e muda o status para "Trocado":
                 
                 if (vals["age_deviceid"]) != False:
                     register_line = self.search([("name", "=", attr["name"]), ("age_attribute", "=", attr['age_attribute'])], limit=1)
@@ -190,10 +185,10 @@ class AgentData(models.Model):
                         register_line.sudo().write({"age_status": "Trocado"})
                     self.sudo().create(vals)
 
+        # Verificação se um componente foi removido:
+        
         register_agent = self.search([("name", "=", payload[0]["name"])])
         for register in register_agent:
-            # if (register["age_devicesn"] != False) and (register["age_devicesn"] in [x["age_devicesn"] for x in payload]):
-            #     "do nothing"
             if ((register["age_devicesn"] != False) and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload])) and (register["age_status"] == "Adicionado" or register["age_status"] == "Recolocado"):
                 register.sudo().write({"age_status": "Removido"})
         
