@@ -5,7 +5,7 @@
     <field name="name">agent.data.tree</field>
     <field name="model">agent.data</field>
     <field name="arch" type="xml">
-      <tree string="Dados do Agente" >
+      <tree string="Dados do Agente" decoration-success="age_status=='Adicionado'" decoration-danger="age_status=='Removido'" decoration-info="age_status=='Recolocado'" decoration-muted="age_status=='Trocado'">
         <field name="name" />
         <field name="age_deviceid" />
         <field name="age_devicesn" />
@@ -27,7 +27,7 @@
 
   <menuitem id="menu_root_machine_diagnostics"
     name="Prontuário"
-    web_icon="machine_diagnostics,static/description/diagnostics.png"
+    web_icon="machine_diagnostics,static/description/icon.png"
     sequence="1"/>
 
   <menuitem id="menu_agent_data"
