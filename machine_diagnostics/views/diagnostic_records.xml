@@ -5,7 +5,7 @@
     <field name="name">diagnostic.records.tree</field>
     <field name="model">diagnostic.records</field>
     <field name="arch" type="xml">
-      <tree string="Registros de Protuário" editable="bottom" decoration-success="diagrec_status=='Adicionado'" decoration-danger="diagrec_status=='Removido'" decoration-info="diagrec_status=='Recolocado'" decoration-warning="diagrec_status=='Trocado'">
+      <tree string="Registros de Protuário" editable="bottom" decoration-danger="diagrec_status=='Removido'" decoration-info="diagrec_status=='Recolocado'" decoration-warning="diagrec_status=='Trocado'">
         <field name="name" />
         <field name="diagrec_deviceid" />
         <field name="diagrec_component" />

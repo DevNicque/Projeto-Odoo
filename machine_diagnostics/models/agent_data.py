@@ -32,7 +32,7 @@ class AgentData(models.Model):
 
         # Passo para verificar se o que tem no Payload existe no Odoo:
         for attr in payload:
-            
+
             if attr["age_attribute"] == "Memória SLT1 Capacidade":
                 age_attribute_value = str(int(int(attr["age_attribute_value"])/1073741824)) + "GB"
 
@@ -153,6 +153,7 @@ class AgentData(models.Model):
                 ("age_attribute", "=", attr["age_attribute"]),
                 ("age_attribute_value", "=", age_attribute_value),
                 ]
+                
             register_line = self.search(domain, limit=1)
             # TODO: escrever no banco por CR
             if register_line:
@@ -176,9 +177,9 @@ class AgentData(models.Model):
                     'age_register_date': attr['age_register_date'],
                     'age_status': 'Adicionado'}
                 # componente adicionado
-                
+
                 # Bloco para checar se o componente não foi removido, e se não, se já existe um componente com o mesmo nome no Odoo e muda o status para "Trocado":
-                
+
                 if (vals["age_deviceid"]) != False:
                     register_line = self.search([("name", "=", attr["name"]), ("age_attribute", "=", attr['age_attribute'])], limit=1)
                     if register_line and not(register_line["age_status"] == "Removido") and not(register_line["age_status"] == "Trocado"):
@@ -186,10 +187,10 @@ class AgentData(models.Model):
                     self.sudo().create(vals)
 
         # Verificação se um componente foi removido:
-        
+
         register_agent = self.search([("name", "=", payload[0]["name"])])
         for register in register_agent:
             if ((register["age_devicesn"] != False) and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload])) and (register["age_status"] == "Adicionado" or register["age_status"] == "Recolocado"):
                 register.sudo().write({"age_status": "Removido"})
-        
+
         return True

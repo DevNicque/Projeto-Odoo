@@ -5,7 +5,7 @@
     <field name="name">agent.data.tree</field>
     <field name="model">agent.data</field>
     <field name="arch" type="xml">
-      <tree string="Dados do Agente" decoration-success="age_status=='Adicionado'" decoration-danger="age_status=='Removido'" decoration-info="age_status=='Recolocado'" decoration-warning="age_status=='Trocado'">
+      <tree string="Dados do Agente" decoration-danger="age_status=='Removido'" decoration-info="age_status=='Recolocado'" decoration-warning="age_status=='Trocado'">
         <field name="name" />
         <field name="age_deviceid" />
         <field name="age_devicesn" />
