@@ -31,6 +31,14 @@ class AgentData(models.Model):
     def get_agent_data(self, payload):
 
         # Passo para verificar se o que tem no Payload existe no Odoo:
+
+        register_agent = self.search([{"name", "=", payload[0]["name"]}])
+        for register in register_agent:
+            if (register["age_devicesn"] != False) and (register["age_devicesn"] in [x["age_devicesn"] for x in payload]):
+                "do nothing"
+            elif register["age_status"] == "Adicionado" or register["age_status"] == "Recolocado":
+                register.sudo().write({"age_status": "Removido"})
+                
         for attr in payload:
             
             if attr["age_attribute"] == "Memória SLT1 Capacidade":
@@ -186,5 +194,5 @@ class AgentData(models.Model):
                 if not((vals["age_deviceid"]) == False):
                     # Precisa ocorrer após a verificação do status de "troca"
                     self.sudo().create(vals)
-        
+
         return True
