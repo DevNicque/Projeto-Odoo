@@ -184,7 +184,7 @@ class AgentData(models.Model):
 
                 # Bloco para checar se já existe um componente com o mesmo nome no Odoo e muda o status para "Trocado"
                 
-                if not((vals["age_deviceid"]) == False):
+                if (vals["age_deviceid"]) != False:
                     register_line = self.search([("name", "=", attr["name"]), ("age_attribute", "=", attr['age_attribute'])], limit=1)
                     if register_line and not(register_line["age_status"] == "Removido") and not(register_line["age_status"] == "Trocado"):
                         register_line.sudo().write({"age_status": "Trocado"})
