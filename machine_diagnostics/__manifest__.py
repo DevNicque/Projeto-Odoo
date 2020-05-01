@@ -1,7 +1,7 @@
 {   # pylint: disable=C8101,C8103
     'name': "Prontuário de Notebooks",
 
-    'summary': "Gerenciamento dos Prontuário de Notebooks",
+    'summary': "Gerenciamento de Prontuários de Notebooks",
 
     'description': "",
     'author': "Redmaxx",
@@ -10,7 +10,9 @@
     'version': '12.0.1.0.0',
     'license': 'AGPL-3',
     'contributors': [
-        'Andrea Monicque dos Santos Silva <amonicquesantos@gmail.com>',
+        'Andrea Monicque dos Santos Silva <andrea.silva@redmaxx.com.br>'
+        'Petronilo Neto <petronilo.neto@redmaxx.com.br>'
+        'Mackilem Van der Laan <mack.vdl@gmail.com>',
     ],
     'depends': ['sale'],
     'data': [

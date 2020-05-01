@@ -18,11 +18,12 @@ class DiagnosticRecords(models.Model):
         string="Descrição", )
     diagrec_register_date = fields.Datetime(
         string="Data Cadastro")
-    diagrec_last_check = fields.Datetime(
-        string="Última Verificação", )
-    agent_data_id = fields.Many2one(
-        string="Agent Data",
-        comodel_name="agent.data", )
+    diagrec_status = fields.Char( # adicionado, removido.
+        string="Status")
+    #agent_data_id = fields.Many2one(
+    #    string="Agent Data",
+    #    comodel_name="agent.data", )
+
 
     # diagrec_product = fields.Many2one(
     #     string="Produto",
