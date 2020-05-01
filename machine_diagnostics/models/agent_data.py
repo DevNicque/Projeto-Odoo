@@ -157,10 +157,14 @@ class AgentData(models.Model):
             # TODO: escrever no banco por CR
             if register_line:
                 # caso de o registro já existir no Odoo mas está com status de removido
+                register_line = self.search([("name", "=", attr["name"]), ("age_attribute", "=", attr['age_attribute'])], limit=1)
+                if register_line and register_line["age_status"] == "Recolocado":
+                    register_line.sudo().write({"age_status": "Trocado"})
+
+                register_line = self.search(domain, limit=1)
                 if (register_line["age_status"] == "Removido" or register_line["age_status"] == "Trocado") and register_line["age_status"] != "Recolocado":
                     register_line.sudo().write({"age_status": "Recolocado"})
-                elif register_line["age_status"] == "Recolocado":
-                    register_line.sudo().write({"age_status": "Trocado"})
+
             else:
                 # caso de o registro não existe no Odoo
                 vals = {
