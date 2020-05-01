@@ -32,15 +32,9 @@ class AgentData(models.Model):
 
         # Passo para verificar se o que tem no Payload existe no Odoo:
 
-        register_agent = self.search([("name", "=", payload[0]["name"])])
         # for n in register_agent:
         #     n.sudo().write({"age_status": "Alooow"})
         # register_agent[3].sudo().write({"age_status": "Teste"})
-        for register in register_agent:
-            # if (register["age_devicesn"] != False) and (register["age_devicesn"] in [x["age_devicesn"] for x in payload]):
-            #     "do nothing"
-            if ((register["age_devicesn"] != False) and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload])) and (register["age_status"] == ("Adicionado" or "Recolocado")):
-                register.sudo().write({"age_status": "Removido"})
 
         for attr in payload:
             
@@ -197,5 +191,12 @@ class AgentData(models.Model):
                 if not((vals["age_deviceid"]) == False):
                     # Precisa ocorrer após a verificação do status de "troca"
                     self.sudo().create(vals)
+                    
+        register_agent = self.search([("name", "=", payload[0]["name"])])
+        for register in register_agent:
+            # if (register["age_devicesn"] != False) and (register["age_devicesn"] in [x["age_devicesn"] for x in payload]):
+            #     "do nothing"
+            if ((register["age_devicesn"] != False) and not(register["age_devicesn"] in [x["age_devicesn"] for x in payload])) and (register["age_status"] == ("Adicionado" or "Recolocado")):
+                register.sudo().write({"age_status": "Removido"})
 
         return True
