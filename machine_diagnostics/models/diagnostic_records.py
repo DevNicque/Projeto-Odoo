@@ -20,6 +20,7 @@ class DiagnosticRecords(models.Model):
         string="Data Cadastro")
     diagrec_status = fields.Char( # adicionado, removido.
         string="Status")
+
     #agent_data_id = fields.Many2one(
     #    string="Agent Data",
     #    comodel_name="agent.data", )
