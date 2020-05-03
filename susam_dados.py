@@ -4,7 +4,7 @@ from json import dump
 # requests.get(<url>, auth = (<usuário>, <senha>), verify=False)
 '''
     requests.get(<url>, auth = (<usuário>, <senha>), verify=False)
-    
+
     O parâmetro "verify" determina se a segurança ssl deve ser verificada ou não. Colocar como False caso a URL destino não seja https.
     O parâmetro "auth" deve ser usado caso a url necessite de um login.
 
@@ -21,7 +21,7 @@ data = response.json() # Eu já sei que a resposta da requisição irá me retor
 
 #print(data["agfa_consumo_medicamentos_e_produtos"])
 
-def create_json_file(name = "susam_dados", dicio = {}):
+def create_json_file(name = "susam_suprimentos", dicio = {}):
     # Função simples para criar um arquivo com extensão .json a partir de um dicionário.
     with open(name + ".json", "w+") as f:
         dump(dicio, f)
