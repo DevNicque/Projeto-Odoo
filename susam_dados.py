@@ -12,19 +12,18 @@ from json import dump
 
 '''
 
-url = 'https://detin.saude.am.gov.br:9300/agfa_total_leitos_clinicos_28_de_agosto/_search?size=10000'
+url = "https://detin.saude.am.gov.br:9300/agfa_consumo_medicamentos_e_produtos"
 login = ('petronilo', '123456')
 
 response = requests.get(url, auth = login, verify=False)
 
 data = response.json() # Eu já sei que a resposta da requisição irá me retornar um JSON (O python interpreta já como um dicionário), então eu posso navegar pelas chaves normalmente. NEM SEMPRE É O CASO.
 
-#print(data["hits"]["hits"]) <<<<<<< é isso o que queremos
+#print(data["agfa_consumo_medicamentos_e_produtos"])
 
-def create_json_file(name = "data", dicio = {}):
+def create_json_file(name = "susam_dados", dicio = {}):
     # Função simples para criar um arquivo com extensão .json a partir de um dicionário.
     with open(name + ".json", "w+") as f:
         dump(dicio, f)
 
-create_json_file(dicio = data["hits"]["hits"])
-
+create_json_file(dicio = data)
