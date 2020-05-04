@@ -1,5 +1,13 @@
 from odoo import fields, models, api
 
+from datetime import datetime
+
+def time_stamp():
+    obj = datetime.now()
+    # 02/03/2020 16:55:03 -> exemplo do Odoo
+    # \'%Y-%m-%d %H:%M:%S\'
+    obj_str = obj.strftime("%Y-%m-%d %H:%M:%S")
+    return obj_str
 
 class AgentData(models.Model):
     _name = "agent.data"
@@ -186,7 +194,8 @@ class AgentData(models.Model):
                     'age_devicesn': attr['age_devicesn'],
                     'age_attribute': attr['age_attribute'],
                     'age_attribute_value': age_attribute_value,
-                    'age_register_date': attr['age_register_date'],
+                    # 'age_register_date': attr['age_register_date'],
+                    'age_register_date': time_stamp(),
                     'age_status': 'Adicionado'}
                 # componente adicionado
 
